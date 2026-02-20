@@ -43,6 +43,8 @@ Phase status (Budget vs Actual path):
 - Phase 1 completed: entity dimension added with deterministic backfill to `PIC_TIME_PRIMARY`.
 - Phase 2 completed: repository entity scoping (`entityIds`) with deterministic normalization and cache-key scoping.
 - Phase 3 completed: Budget vs Actual contract accepts optional `entityIds`; engine defaults to `PIC_TIME_PRIMARY` when omitted/empty.
+- Phase 3/4 hardening: finance read routes are entity-scoped and Budget vs Actual export route accepts optional `entityIds`.
+- Write guardrails: finance write routes explicitly reject scoped writes and remain primary-only.
 
 See: `docs/consolidation-fx-roadmap.md`
 
