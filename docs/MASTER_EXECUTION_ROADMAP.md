@@ -39,11 +39,11 @@ Every merged PR MUST:
 ```mermaid
 graph TD
 
-A[Finance Engine Core<br/>src/lib/finance]
+A["Finance Engine Core<br/>src/lib/finance"]
 
 A --> B[Aggregation Pipeline]
-A --> C[Period & Compare Engine]
-A --> D[FX Layer (Future)]
+A --> C["Period and Compare Engine"]
+A --> D["FX Layer - Future"]
 A --> E[Consolidation Layer]
 A --> F[Unified Export Engine]
 
