@@ -10,6 +10,33 @@ The Finance Dashboard is an internal Next.js system today, designed under an exp
 - Exports (`src/lib/finance/export`): generic XLSX infrastructure (catalog, sheet factories, workbook builders).
 - Currently exposed export endpoint: Budget vs Actual XLSX (`/api/finance/export/budget-vs-actual`).
 
+## Consolidation & FX Roadmap
+
+### Goals
+- Support multi-entity consolidation while preserving current single-entity behavior.
+- Keep finance engine extractable with stable DTO contracts.
+- Keep deterministic finance behavior with guardrail parity.
+
+### Non-goals (initial phases)
+- No consolidation selector UI changes yet.
+- No intercompany elimination behavior implementation yet.
+- No FX behavior changes in Phase 1.
+
+### Invariants
+- `single(primary)` output must remain identical to current baseline.
+- Determinism must remain intact (stable ordering, stable semantics, reproducible outputs).
+- UI must not implement FX or conversion logic.
+- FX data (rates) is loaded via repository/adapters; UI never sees or computes FX inputs.
+- Finance domain logic stays in `src/lib/finance`; Prisma/IO remains outside finance engine modules.
+- Extractability boundary remains unchanged.
+
+### Phased plan summary
+- Phase 1 (additive schema): introduce entity dimension (`entityId` on fact tables) with deterministic backfill to primary entity, and optional FX reference tables, with no behavior change.
+- Phase 2 (consolidation-ready scope): introduce entity scope contracts (`single` / `consolidated`) while keeping engine Prisma-free.
+- Phase 3 (FX behavior): add controlled conversion semantics with strict no-op identity when functional equals reporting currency.
+
+See: `docs/consolidation-fx-roadmap.md`
+
 ## Target Architecture (Future: Extracted Engine Service)
 
 ### Components
