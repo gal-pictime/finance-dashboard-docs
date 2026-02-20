@@ -47,9 +47,3 @@ export type BalanceAccountKey =
   | "def"
   | "share"
   | "ret";
-
-export type BalanceSheetResponse = {
-  year: number;
-  month: number;
-  accounts: Record<BalanceAccountKey, number>;
-};

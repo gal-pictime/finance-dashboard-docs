@@ -106,7 +106,7 @@ Use-cases are the contract surface. Inputs/outputs must be explicit and stable.
   - Outputs: section rows and totals with current/compare/variance fields and resolved snapshot metadata.
   - Invariants: if compare target is outside dataset boundary, compare is downgraded to `NONE` and compare/variance fields are null.
 
-- Legacy API path note: `/api/finance/balance-sheet` remains a snapshot-only endpoint for backward compatibility and does not represent the report-model contract.
+- Legacy snapshot endpoint `/api/finance/balance-sheet` has been removed; balance sheet access must use the report-model contract endpoint `/api/finance/balance-sheet-report`.
 
 - `getCashFlowReportModel(params) -> CashFlowReportModel`
   - Inputs: year, period selection, compare mode, basis.
