@@ -26,6 +26,7 @@ Last Updated: 2026-02-20
 | 2026-02-20 | #73 | Balance Sheet Unification | 0/Phase 1 | Remove legacy balance-sheet endpoint; migrate dashboard to report model; add guardrail; align docs. |
 | 2026-02-20 | #74 | Balance Sheet Unification | Phase 1 | Remove BalanceSheetResponse legacy type; align API/public types and docs. |
 | 2026-02-20 | #75 | Governance | N/A | Move MASTER_EXECUTION_ROADMAP under docs/ for public mirror. |
+| 2026-02-20 | #78 | Governance / Guardrails | N/A | Add CI-safe guardrail enforcing Change Log updates for finance-critical changes. |
 
 Every merged PR MUST:
 1. Map to a section below
