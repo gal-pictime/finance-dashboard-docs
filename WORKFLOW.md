@@ -146,6 +146,12 @@ JSON/API shape changes, report model changes, and XLSX/export structure changes 
 
 Silent contract changes are prohibited.
 
+Contract fixture guard (all existing finance reports):
+- Deterministic JSON fixtures are committed under `src/contract-fixtures/`.
+- Guardrail test `src/guardrails/contract-fixtures.test.ts` fails on output drift.
+- Local update flow: `UPDATE_CONTRACT_FIXTURES=1 npx vitest run src/guardrails/contract-fixtures.test.ts`.
+- Any fixture update MUST be classified as `Contract change` in the PR.
+
 ## Determinism Policy (src/lib/finance)
 Finance engine logic MUST be deterministic:
 - No `Date.now()` / `new Date()` for finance semantics.
