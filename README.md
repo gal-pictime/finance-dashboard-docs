@@ -159,6 +159,7 @@ Any logic drift should fail tests.
 
 CI workflows, PR policy enforcement, docs mirror behavior, scripts/hooks, and guardrail test update procedures are documented in:
 `docs/engineering-guardrails.md`.
+CI guardrails also enforce governance alignment by requiring `docs/MASTER_EXECUTION_ROADMAP.md` Change Log updates when finance-critical paths change.
 
 ## XLSX Export
 

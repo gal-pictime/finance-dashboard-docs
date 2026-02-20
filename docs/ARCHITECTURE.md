@@ -156,6 +156,12 @@ Use-cases are the contract surface. Inputs/outputs must be explicit and stable.
 - API routes remain thin adapters over engine contracts.
 - Tests and guardrails are required for invariants and parity.
 
+## Governance & Roadmap Alignment
+
+- `docs/MASTER_EXECUTION_ROADMAP.md` is the authoritative execution document.
+- Finance-critical changes must map to a roadmap phase and be logged in its Change Log.
+- CI guardrails enforce this alignment and fail PRs that introduce finance-critical changes without a roadmap Change Log update.
+
 ## Money Units
 
 - Database values are stored as full USD; UI/report surfaces render `$K`.

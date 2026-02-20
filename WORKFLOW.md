@@ -302,6 +302,11 @@ For structural changes, reviewers must verify:
 - PR classification is enforced in CI (`.github/workflows/pr-policy.yml`).
 - A PR must include at least one selected Change Classification checkbox in the PR body.
 
+### Roadmap Change Log Guardrail
+- For finance-critical changes (`src/lib/finance/**`, `src/server/finance-*/**`, `src/app/api/finance/**`, `prisma/**`, finance API types under `src/types/**`, and `src/guardrails/**`), PRs MUST also update `docs/MASTER_EXECUTION_ROADMAP.md` Change Log.
+- CI enforces this automatically via `src/guardrails/roadmap-changelog-required.test.ts`.
+- This guardrail test runs only in CI (`process.env.CI === "true"`), not in normal local test runs.
+
 ---
 
 ## Timing commands (zsh-safe)
