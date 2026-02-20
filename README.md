@@ -155,6 +155,11 @@ Any logic drift should fail tests.
 - Database money is stored as full USD; UI displays `$K` via finance format helpers.
 - `npm run test:db` also runs money-unit guardrails (policy + optional baseline invariance check).
 
+## Automations & Guardrails
+
+CI workflows, PR policy enforcement, docs mirror behavior, scripts/hooks, and guardrail test update procedures are documented in:
+`docs/engineering-guardrails.md`.
+
 ## XLSX Export
 
 Budget vs Actual export endpoint:

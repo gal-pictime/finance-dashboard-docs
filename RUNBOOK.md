@@ -116,6 +116,11 @@ Stop and investigate before proceeding if any of the following occurs:
 ## References
 - [GOVERNANCE.md](GOVERNANCE.md)
 - [WORKFLOW.md](WORKFLOW.md)
+- [docs/engineering-guardrails.md](docs/engineering-guardrails.md)
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 - [PLAN.md](PLAN.md)
 - [ROADMAP.md](ROADMAP.md)
+
+## Automations & Enforcement
+- Canonical enforcement reference: [docs/engineering-guardrails.md](docs/engineering-guardrails.md).
+- This includes CI workflows, PR policy checks, docs mirror behavior, scripts, hooks, and guardrail tests.

@@ -1,6 +1,7 @@
 # Finance Dashboard – Workflow Rules
 
 This document defines the permanent working rules for this project.
+Automation and enforcement implementation details are centralized in `docs/engineering-guardrails.md`.
 
 Public mirror policy:
 - All work (code + docs + process) MUST happen only in the private repo: `finance-dashboard`.
