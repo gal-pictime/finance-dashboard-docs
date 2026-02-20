@@ -101,14 +101,16 @@ Use-cases are the contract surface. Inputs/outputs must be explicit and stable.
   - Outputs: model rows with current/compare/delta fields.
   - Invariants: compare semantics consistent with shared period helpers.
 
-- `getBalanceSheetModel(params) -> BalanceSheetModel`
-  - Inputs: year/month, optional compare target.
-  - Outputs: snapshot model with stable account groupings.
-  - Invariants: snapshot determinism and stable account semantics.
+- `getBalanceSheetReportModel(params) -> BalanceSheetReportModel`
+  - Inputs: year, period selection (`periodType`, `selectedMonth`, `selectedQuarter`), compare mode.
+  - Outputs: section rows and totals with current/compare/variance fields and resolved snapshot metadata.
+  - Invariants: if compare target is outside dataset boundary, compare is downgraded to `NONE` and compare/variance fields are null.
 
-- `getCashFlowModel(params) -> CashFlowModel`
-  - Inputs: period selection, basis, begin/end snapshots, optional compare target.
-  - Outputs: operating/investing/financing model with reconciliation fields.
+- Legacy API path note: `/api/finance/balance-sheet` remains a snapshot-only endpoint for backward compatibility and does not represent the report-model contract.
+
+- `getCashFlowReportModel(params) -> CashFlowReportModel`
+  - Inputs: year, period selection, compare mode, basis.
+  - Outputs: report-model rows and reconciliation fields with compare/variance support.
   - Invariants: reconciliation semantics deterministic and basis-aware.
 
 - `buildXlsxWorkbook(params) -> Buffer`

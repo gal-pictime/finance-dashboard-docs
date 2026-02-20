@@ -47,6 +47,12 @@
 ### Contract fixtures
 - Fixtures: `src/contract-fixtures/*`
 - Guard test: `src/guardrails/contract-fixtures.test.ts`
+- Current contract case ids:
+  - `budget-vs-actual`
+  - `income-statement`
+  - `balance-sheet-report`
+  - `cash-flow`
+- Note: `src/contract-fixtures/balance-sheet.model.json` is the fixture file for the `balance-sheet-report` contract case (filename retained).
 - Update flow (intentional contract changes only):
   - `UPDATE_CONTRACT_FIXTURES=1 npx vitest run src/guardrails/contract-fixtures.test.ts`
 - Policy: fixture updates require PR classification `Contract change`.

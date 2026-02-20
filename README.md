@@ -201,6 +201,18 @@ Response:
 
 ---
 
+## Balance Sheet & Cash Flow Report APIs
+
+- Balance Sheet currently has two endpoints:
+  - Legacy snapshot (unchanged): `GET /api/finance/balance-sheet`
+  - Report-model contract (engine-driven): `GET /api/finance/balance-sheet-report`
+- `balance-sheet-report` selector params follow standard report selectors: `year`, `periodType`, `selectedMonth`, `selectedQuarter`, `compareTo` (plus optional `entityIds`).
+- The server resolves effective `snapshotMonth` and `compareSnapshotMonth` in `meta`; UI remains fetch + render only.
+- Compare boundary behavior is deterministic: if compare target is outside dataset start (`2024-01`), `meta.compareTo` is returned as `"NONE"` and all compare/variance fields are `null`.
+- Cash Flow report model endpoint follows the same selector contract pattern via `GET /api/finance/cash-flow`.
+
+---
+
 ## Git Workflow
 
 Main branch: stable  
