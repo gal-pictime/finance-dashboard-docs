@@ -152,6 +152,8 @@ Any logic drift should fail tests.
 - It exists to detect migration/seed data regressions early.
 - Run it only when Postgres is running and migrated/seeded.
 - It is intentionally not part of `npm test`; CI runs it after `prisma db seed`.
+- Database money is stored as full USD; UI displays `$K` via finance format helpers.
+- `npm run test:db` also runs money-unit guardrails (policy + optional baseline invariance check).
 
 ## XLSX Export
 
