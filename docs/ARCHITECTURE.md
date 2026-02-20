@@ -116,6 +116,12 @@ Use-cases are the contract surface. Inputs/outputs must be explicit and stable.
 - API routes remain thin adapters over engine contracts.
 - Tests and guardrails are required for invariants and parity.
 
+## Public Docs Mirror
+
+- Public mirror coverage is limited to governance/docs artifacts and `src/types/public/**` contract shapes.
+- Implementation code and Prisma-dependent types are forbidden from the mirror.
+- Decision record: `docs/adr/ADR-001-public-docs-mirror.md`.
+
 ## Report Models Boundary Note
 
 `src/lib/finance/report-models` currently contains executable logic in addition to model structures.  

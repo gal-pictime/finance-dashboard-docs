@@ -2,6 +2,8 @@
 
 Internal finance reporting dashboard for Pic-Time.
 
+Public documentation and public contract references are mirrored to `gal-pictime/finance-dashboard-docs` without exposing implementation code.
+
 This project provides:
 
 - Income Statement (Actual + Budget)
