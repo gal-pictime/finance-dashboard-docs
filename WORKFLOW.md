@@ -2,6 +2,11 @@
 
 This document defines the permanent working rules for this project.
 
+Public mirror policy:
+- All work (code + docs + process) MUST happen only in the private repo: `finance-dashboard`.
+- `finance-dashboard-docs` is READ-ONLY and exists only as an automated mirror.
+- Never open branches/PRs or make edits in the public repo.
+
 ## Definitions
 - MUST: mandatory requirement; violations block merge.
 - SHOULD: expected default behavior; deviations require explicit rationale in PR.
@@ -58,7 +63,7 @@ Merge (linear history):
 When a pull request is ready to merge, always wait for CI checks to complete successfully before merging.  
 Use the following consolidated command to watch checks, merge the PR, and sync your local main branch:
 
-- gh pr checks <PR#> --watch && ./scripts/pr-merge.sh <PR#> && git fetch origin main && git checkout main && git pull --rebase origin main && git status -sb
+- PR="$(gh pr list --head "$(git branch --show-current)" --state open --json number --jq '.[0].number')" && gh pr checks "$PR" --watch && ./scripts/pr-merge.sh "$PR" && git fetch origin main && git checkout main && git pull --rebase origin main && git status -sb
 
 After merge:
 - git checkout main
