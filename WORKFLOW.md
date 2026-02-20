@@ -53,6 +53,13 @@ Merge (linear history):
 - MUST use `./scripts/pr-merge.sh` (checks must pass before merge).
 - Do not merge via GitHub UI in normal flow (branch protection/required checks are not available).
 
+### Minimal Close Command
+
+When a pull request is ready to merge, always wait for CI checks to complete successfully before merging.  
+Use the following consolidated command to watch checks, merge the PR, and sync your local main branch:
+
+- gh pr checks <PR#> --watch && ./scripts/pr-merge.sh <PR#> && git fetch origin main && git checkout main && git pull --rebase origin main && git status -sb
+
 After merge:
 - git checkout main
 - git pull --rebase origin main
