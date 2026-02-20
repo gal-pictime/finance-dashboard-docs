@@ -15,6 +15,22 @@
 
 ---
 
+## Current baseline dataset
+
+The current seeded dataset represents a consolidated (already-unified) baseline view.  
+It is not yet ingesting per-entity subsidiary source inputs for consolidation processing.  
+Future phases will ingest entity-level inputs and compute consolidated outputs (and later eliminations), while preserving current `single(primary)` behavior until explicitly enabled.
+
+---
+
+## Consolidation vs FX scope
+
+Consolidation assumes USD inputs and operates on USD-normalized datasets.  
+FX is used for per-entity currency analytics and reporting views.  
+FX does not alter consolidation logic or consolidation mechanics.
+
+---
+
 ## Entity Model
 
 We introduce an explicit Entity dimension.

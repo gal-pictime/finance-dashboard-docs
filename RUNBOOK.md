@@ -45,6 +45,7 @@ git checkout -b feat/short-name
 3. Verify (after every meaningful change)
 - [ ] Run required checks locally.
 - [ ] Local DB setup: `npm run db:up` then `npm run db:migrate` then `npm run db:seed` (or `npm run db:reset` for clean slate).
+- [ ] `npm run db:seed` includes `prisma generate`, so no separate manual generate step is required.
 - [ ] E2E smoke checks run in CI; run locally with `npx playwright install` (once) then `npm run test:e2e`.
 
 ```bash

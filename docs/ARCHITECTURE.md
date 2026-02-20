@@ -35,6 +35,10 @@ The Finance Dashboard is an internal Next.js system today, designed under an exp
 - Phase 2 (consolidation-ready scope): introduce entity scope contracts (`single` / `consolidated`) while keeping engine Prisma-free.
 - Phase 3 (FX behavior): add controlled conversion semantics with strict no-op identity when functional equals reporting currency.
 
+FX is logically independent from consolidation. Consolidation operates on USD-normalized datasets. FX is primarily used for per-entity currency analysis (for example ILS vs USD) and does not affect consolidation mechanics.
+
+Note: the current seeded dataset represents the consolidated (already-unified) baseline view. Future phases will ingest per-entity subsidiary inputs and compute consolidated outputs (and later eliminations), while preserving current single(primary) behavior until explicitly enabled.
+
 See: `docs/consolidation-fx-roadmap.md`
 
 ## Target Architecture (Future: Extracted Engine Service)
