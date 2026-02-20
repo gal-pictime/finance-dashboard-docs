@@ -39,6 +39,11 @@ FX is logically independent from consolidation. Consolidation operates on USD-no
 
 Note: the current seeded dataset represents the consolidated (already-unified) baseline view. Future phases will ingest per-entity subsidiary inputs and compute consolidated outputs (and later eliminations), while preserving current single(primary) behavior until explicitly enabled.
 
+Phase status (Budget vs Actual path):
+- Phase 1 completed: entity dimension added with deterministic backfill to `PIC_TIME_PRIMARY`.
+- Phase 2 completed: repository entity scoping (`entityIds`) with deterministic normalization and cache-key scoping.
+- Phase 3 completed: Budget vs Actual contract accepts optional `entityIds`; engine defaults to `PIC_TIME_PRIMARY` when omitted/empty.
+
 See: `docs/consolidation-fx-roadmap.md`
 
 ## Target Architecture (Future: Extracted Engine Service)
