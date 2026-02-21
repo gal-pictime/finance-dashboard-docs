@@ -134,9 +134,10 @@ Every important rule must have a small unit test:
 - No direct money formatting in runtime code. Use finance format helpers only.
 - Guardrail test exists and fails CI on violation.
 - Seed/migration changes MUST update `src/server/db-fingerprint.test.ts` snapshot in the same PR.
-- CI runs `npm run test:db` after `prisma db seed`.
-- CI runs `lint`, `test`, and `build` in parallel jobs with npm cache + Next.js `.next/cache` restore for faster runs.
-- Cache busting is automatic when lockfiles or core build inputs change; if CI cache looks stale, rerun CI or update the lockfile/build config.
+- Fast PR gates run in `CI` as separate jobs: `lint`, `test` (unit tests only), and `build`.
+- `CI Heavy` runs DB+seed+`test:db`+build+Playwright E2E on `main` pushes and nightly; on PRs it runs only when label `needs-e2e` is present.
+- npm cache is used via `actions/setup-node` in each CI job; Next.js cache uses `.next/cache` in build-heavy paths.
+- Cache busting is automatic when lockfiles/core build config hashes change; if CI cache looks stale, rerun jobs.
 
 ## 8) Documentation Rule
 Every new feature requires updating README.md.

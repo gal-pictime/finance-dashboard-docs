@@ -38,6 +38,8 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Canonicalize filterBudgetByScope into budget-scope helper; add contract tests to prevent drift. |
 | 2026-02-21 | #TBD | CI Performance | 5/Phase 3 | Add GitHub Actions caching + split jobs for parallel CI. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Add canonical revenue helper, route duplicated revenue/totals paths to shared helpers, harden nondeterminism guardrails, and add totals-agreement + no-finance-math guardrails. |
+| 2026-02-21 | #TBD | CI Performance | 5/Phase 3 | Revert brittle node_modules artifact sharing and split checks into fast PR CI gates plus separate CI Heavy flow (main/nightly/needs-e2e label). |
+| 2026-02-21 | #TBD | CI Performance | 5/Phase 3 | Add setup artifact sharing for lint/test/build, centralize Prisma generate ordering, and keep deterministic npm/Next cache strategy. |
 
 Every merged PR MUST:
 1. Map to a section below
