@@ -37,6 +37,7 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Deduplicate zeroMonths to canonical src/lib/finance/months.ts; remove duplicate implementations across finance modules and contract registry. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Canonicalize filterBudgetByScope into budget-scope helper; add contract tests to prevent drift. |
 | 2026-02-21 | #TBD | CI Performance | 5/Phase 3 | Add GitHub Actions caching + split jobs for parallel CI. |
+| 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Add canonical revenue helper, route duplicated revenue/totals paths to shared helpers, harden nondeterminism guardrails, and add totals-agreement + no-finance-math guardrails. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -140,17 +141,17 @@ Exit Criteria:
 ## Phase 2 – Aggregation Convergence 🟡 In Progress
 - [ ] Single aggregation entry point verified
 - [x] Financial Aggregation Architecture documented
-- [ ] Remove duplicate totals logic
+- [x] Remove duplicate totals logic
 - [x] Remove duplicate variance logic
 - [x] Period selection unified
 - [x] Budget vs Actual share same source
-- [ ] Guardrail Enforcement Layer (prevent aggregation drift)
+- [x] Guardrail Enforcement Layer (prevent aggregation drift)
 - [x] Deduplicate `filterBudgetByScope`
 - [x] Deduplicate `zeroMonths` (single canonical import)
-- [ ] Canonical revenue helper policy + implementation planned
+- [x] Canonical revenue helper policy + implementation planned
 - [ ] Cache invalidation on write endpoints
-- [ ] Remove nondeterministic defaults from finance core
-- [ ] Totals agreement guardrail
+- [x] Remove nondeterministic defaults from finance core
+- [x] Totals agreement guardrail
 - [ ] Dashboard endpoint server alignment (Phase 2/4 coupling)
 Notes:
 - Convergence refactors are in progress, including helper centralization.
