@@ -41,6 +41,7 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #TBD | CI Performance | 5/Phase 3 | Revert brittle node_modules artifact sharing and split checks into fast PR CI gates plus separate CI Heavy flow (main/nightly/needs-e2e label). |
 | 2026-02-21 | #TBD | Governance / Process | N/A | Document CI Heavy PR label policy (`needs-e2e`) checklist in WORKFLOW.md. |
 | 2026-02-21 | #TBD | CI Performance | 5/Phase 3 | Add setup artifact sharing for lint/test/build, centralize Prisma generate ordering, and keep deterministic npm/Next cache strategy. |
+| 2026-02-21 | #100 | Cash Flow Structural Alignment | Phase 3 | Strict structural alignment via shared balance-delta helper + reconciliation invariants; remove duplicate balance mapping. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -167,10 +168,10 @@ Exit Criteria:
 ---
 
 ## Phase 3 – Cash Flow Structural Alignment 🟡 In Progress
-- [ ] Validate delta reconciliation vs Balance Sheet
-- [ ] Ensure no snapshot dependency
-- [ ] Add invariant reconciliation tests
-- [ ] Remove redundant balance fetch
+- [x] Validate delta reconciliation vs Balance Sheet
+- [x] Ensure no snapshot dependency
+- [x] Add invariant reconciliation tests
+- [x] Remove redundant balance fetch
 
 Exit Criteria:
 - Cash Flow deterministically reconciles to Balance Sheet
