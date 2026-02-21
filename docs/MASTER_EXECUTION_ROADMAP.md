@@ -5,7 +5,7 @@
 > This file lives in the private repo and is mirrored to the public docs repo.
 > Items are removed ONLY after full phase completion + validation.
 
-Last Updated: 2026-02-20
+Last Updated: 2026-02-21
 
 ---
 
@@ -27,6 +27,7 @@ Last Updated: 2026-02-20
 | 2026-02-20 | #74 | Balance Sheet Unification | Phase 1 | Remove BalanceSheetResponse legacy type; align API/public types and docs. |
 | 2026-02-20 | #75 | Governance | N/A | Move MASTER_EXECUTION_ROADMAP under docs/ for public mirror. |
 | 2026-02-20 | #78 | Governance / Guardrails | N/A | Add CI-safe guardrail enforcing Change Log updates for finance-critical changes. |
+| 2026-02-21 | #TBD | Unified Export Engine | Phase 5 | Unify XLSX export infrastructure across all reports using workbookDef registry and shared builder pipeline. No UI or styling changes. |
 
 Every merged PR MUST:
 1. Map to a section below
