@@ -28,6 +28,7 @@ Last Updated: 2026-02-21
 | 2026-02-20 | #75 | Governance | N/A | Move MASTER_EXECUTION_ROADMAP under docs/ for public mirror. |
 | 2026-02-20 | #78 | Governance / Guardrails | N/A | Add CI-safe guardrail enforcing Change Log updates for finance-critical changes. |
 | 2026-02-21 | #TBD | Unified Export Engine | Phase 5 | Add unified /api/finance/export orchestration, route unification for single-report exports, and structural invariant tests for ordering/parity. |
+| 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 4 (Dashboard Alignment) | Remove duplicate dashboard totals logic; centralize P&L + budget totals helpers in src/lib/finance; add tests to prevent drift. |
 
 Every merged PR MUST:
 1. Map to a section below

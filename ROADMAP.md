@@ -179,6 +179,10 @@ Phases do not advance until trust gates are met:
 - [ ] Migration plan options from internal-first to managed multi-tenant model.
 - [ ] Cash Flow feature expansion feasibility (scenario and forecasting hooks).
 
+#### Dashboard Alignment (Execution Program Phase 4)
+
+- [x] Dashboard totals unification: remove duplicate totals logic; centralize P&L + budget totals helpers in `src/lib/finance`; add tests to prevent drift.
+
 #### Definition of Done
 
 - [ ] Productization decision memo approved (go/no-go or staged pilot).
