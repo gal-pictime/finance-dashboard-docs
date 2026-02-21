@@ -320,14 +320,14 @@ Single export engine shared by:
 
 ---
 
-## Phase 1 – DTO Alignment ✅ Completed
+## Phase 1 – DTO Alignment 🟢 Closed
 - [x] All exports are built from stable report models (no UI-derived DTOs)
 - [x] Removed direct per-report ExcelJS construction
 - [x] Compare column structure aligned across reports
 
 ---
 
-## Phase 2 – Shared Export Builder ✅ Completed
+## Phase 2 – Shared Export Builder 🟢 Closed
 - [x] Central builder in `src/lib/finance/export`
 - [x] WorkbookDef registry implemented
 - [x] Unified engine XLSX methods per report
@@ -337,7 +337,7 @@ Single export engine shared by:
 
 ---
 
-## Phase 2.5 – Export Surface Completion ✅ Completed
+## Phase 2.5 – Export Surface Completion 🟢 Closed
 - [x] Multi-report export orchestration (single/multi/all reports in one workbook)
 - [x] Filename convention alignment across reports
 - [x] Preset strategy clarification:
@@ -347,7 +347,7 @@ Single export engine shared by:
 
 ---
 
-## Phase 3 – Structural Invariants ✅ Completed
+## Phase 3 – Structural Invariants 🟢 Closed
 - [x] Snapshot workbook structure tests per report
 - [x] Column order invariant enforcement
 - [x] Compare mode parity validation (NONE / PREVIOUS_PERIOD / PRIOR_YEAR)
