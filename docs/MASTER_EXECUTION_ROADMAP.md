@@ -29,6 +29,7 @@ Last Updated: 2026-02-21
 | 2026-02-20 | #78 | Governance / Guardrails | N/A | Add CI-safe guardrail enforcing Change Log updates for finance-critical changes. |
 | 2026-02-21 | #TBD | Unified Export Engine | Phase 5 | Add unified /api/finance/export orchestration, route unification for single-report exports, and structural invariant tests for ordering/parity. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 4 (Dashboard Alignment) | Remove duplicate dashboard totals logic; centralize P&L + budget totals helpers in src/lib/finance; add tests to prevent drift. |
+| 2026-02-21 | #87 | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Budget vs Actual: move variance and variance% computation into finance model layer; UI is now render-only (no behavior change). |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -132,9 +133,9 @@ Exit Criteria:
 ## Phase 2 – Aggregation Convergence 🟡 In Progress
 - [ ] Single aggregation entry point verified
 - [ ] Remove duplicate totals logic
-- [ ] Remove duplicate variance logic
+- [x] Remove duplicate variance logic
 - [ ] Period selection unified
-- [ ] Budget vs Actual share same source
+- [x] Budget vs Actual share same source
 Notes:
 - Convergence refactors are in progress, including helper centralization.
 - Invariant-level verification is not yet complete.
@@ -362,7 +363,7 @@ Status: 🟡 In Progress
 
 ## Phase 2 – Legacy & Policy Guardrails
 - [x] Forbid `/api/finance/balance-sheet`
-- [ ] No finance math in UI
+- [x] No finance math in UI
 - [ ] No Prisma in src/lib/finance
 - [ ] No debug endpoints in production
 
