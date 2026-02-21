@@ -161,6 +161,7 @@ Use-cases are the contract surface. Inputs/outputs must be explicit and stable.
 - `docs/MASTER_EXECUTION_ROADMAP.md` is the authoritative execution document.
 - Finance-critical changes must map to a roadmap phase and be logged in its Change Log.
 - CI guardrails enforce this alignment and fail PRs that introduce finance-critical changes without a roadmap Change Log update.
+- Guardrail: `roadmap-changelog-required` (`src/guardrails/roadmap-changelog-required.test.ts`) requires roadmap Change Log updates in the same PR when finance-critical paths change, including finance API type paths (`src/types/finance-api.ts`, `src/types/public/finance-api.ts`, and any `src/types/**` path containing `finance-api`).
 
 ## Money Units
 

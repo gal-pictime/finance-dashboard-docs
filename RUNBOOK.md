@@ -104,6 +104,28 @@ git status -sb
 - Update `ROADMAP.md` for planning priority or phase shifts.
 - Update `PLAN.md` for major governance/workflow/infrastructure decisions (what/why/decision).
 
+## Roadmap Governance Rules (MANDATORY)
+
+A) Change Log Enforcement
+- Any change touching finance-critical paths MUST update `docs/MASTER_EXECUTION_ROADMAP.md` Change Log in the same PR.
+- Finance-critical paths include:
+  - `src/lib/finance/**`
+  - `src/server/finance-*`
+  - `src/app/api/finance/**`
+  - `src/guardrails/**`
+  - `prisma/**`
+  - `src/types/finance-api.ts`
+  - `src/types/public/finance-api.ts`
+  - any file under `src/types/**` whose path includes `finance-api`
+- CI enforces this via: `src/guardrails/roadmap-changelog-required.test.ts`.
+- PRs that modify finance-critical files without updating the Change Log will fail.
+
+B) Task Completion Rule
+- When completing any task, phase item, or checkbox listed in `docs/MASTER_EXECUTION_ROADMAP.md`, the checkbox MUST be marked as `[x]` in the same PR.
+- Partial completion must be explicitly clarified in the roadmap.
+- If the change performed does not correspond to an existing roadmap task, do NOT invent a checkbox; only add a Change Log entry.
+- Never leave completed tasks unchecked.
+
 ## Stop Conditions
 Stop and investigate before proceeding if any of the following occurs:
 - Local `lint`, `test`, or `build` fails.
