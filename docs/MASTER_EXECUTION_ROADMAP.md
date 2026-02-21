@@ -195,6 +195,100 @@ Exit Criteria:
 
 ---
 
+# FULL FINANCIAL UNIFICATION PROGRAM — Post-Phase Roadmap (Waves)
+
+Status: PLANNED  
+Principle: Long-term architectural stability, extraction readiness, and financial integrity.
+
+## Wave 1 — Contract, Governance & Drift Prevention
+
+### Objective
+Stabilize report contracts and eliminate future drift across reports and UI layers.
+
+### Scope
+- Central Report Registry (single source of report capabilities and metadata).
+- API contract versioning policy for finance endpoints.
+- Snapshot-based contract tests for core report endpoints.
+- Runtime query/selection validation (server-side schema enforcement).
+- Expanded UI guardrails preventing finance logic in client components.
+
+### Exit Criteria
+- All reports registered in a central registry.
+- DTO changes require explicit version bump.
+- Contract snapshots enforced in CI.
+- All finance endpoints validate selection via runtime schema.
+
+Status: Planned
+
+---
+
+## Wave 2 — Financial Integrity & Reconciliation
+
+### Objective
+Ensure accounting correctness and detect inconsistencies automatically.
+
+### Scope
+- Reconciliation framework:
+  - Assets = Liabilities + Equity enforcement.
+  - Income-to-equity consistency checks.
+  - Cash-flow-to-balance-sheet consistency.
+- Mapping coverage guardrails (accounts & departments).
+- Internal diagnostic checks for unmapped or inconsistent data.
+
+### Exit Criteria
+- Reconciliation checks runnable and enforced.
+- CI fails on unmapped financial accounts.
+- Clear tolerance policy documented.
+
+Status: Planned
+
+---
+
+## Wave 3 — Scale & Expansion (FX, Import, Performance, Ops, Security)
+
+### Objective
+Prepare the finance engine for growth, multi-entity scaling, and operational maturity.
+
+### Scope
+- FX engine module (deterministic, auditable, provider-abstracted).
+- Import infrastructure (historical + incremental, idempotent, dry-run capable).
+- Deterministic performance caching (selection-hash based).
+- Query batching audit and N+1 prevention.
+- Structured logging & metrics per report.
+- Granular RBAC by entity/report scope.
+
+### Exit Criteria
+- FX conversions policy-driven and deterministic.
+- Import pipeline idempotent and auditable.
+- Cache toggleable without behavior change.
+- No N+1 patterns in critical endpoints.
+- Operational observability enabled.
+- RBAC enforced server-side.
+
+Status: Planned
+
+---
+
+## Mega Milestone — Extraction Readiness
+
+### Objective
+Enable FinanceEngine to be externalized as a standalone service without UI changes.
+
+### Scope
+- Stable, versioned report contracts.
+- Stateless engine boundary.
+- Authentication abstraction.
+- Compatibility validation suite.
+
+### Exit Criteria
+- Engine can run independently.
+- UI remains pure contract consumer.
+- No finance logic outside src/lib/finance.
+
+Status: Planned
+
+---
+
 ## Definition of Completion
 
 The Full Financial Unification Program is complete only when:
