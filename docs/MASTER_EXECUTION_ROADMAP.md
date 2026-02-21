@@ -44,6 +44,7 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #100 | Cash Flow Structural Alignment | Phase 3 | Strict structural alignment via shared balance-delta helper + reconciliation invariants; remove duplicate balance mapping. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 4 (Dashboard Alignment) | Move dashboard to single server-built `/api/finance/dashboard` model endpoint; remove UI compare/period math and N+1 fetches; enforce UI guardrail. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Restrict aggregation public surface to `buildFinanceAggregates` and add dataset-epoch cache invalidation for actual/budget writes with deterministic repository invalidation coverage. |
+| 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 1–4 Closure | Close Full Financial Unification Program and mark Phases 1–4 as closed, aligned with completed implementation and verification artifacts. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -115,7 +116,7 @@ Architectural correctness and deterministic outputs take priority over linear pr
 ---
 
 # 0️⃣ FULL FINANCIAL UNIFICATION PROGRAM
-Status: 🟡 In Progress
+Status: 🟢 Closed (Implementation Complete)
 
 ## Objective
 Single unified finance model powering:
@@ -125,10 +126,11 @@ Single unified finance model powering:
 - Dashboard
 - XLSX Export
 - Future external service extraction
+Implementation complete. Further evolution will occur under Consolidation Waves and FX Roadmap (and other programs already listed below).
 
 ---
 
-## Phase 1 – Balance Sheet Unification 🟢 Completed
+## Phase 1 – Balance Sheet Unification 🟢 Closed
 - [x] Introduced BalanceSheetReportModel
 - [x] Engine-driven report endpoint
 - [x] Dashboard migration to report model
@@ -144,7 +146,7 @@ Exit Criteria:
 
 ---
 
-## Phase 2 – Aggregation Convergence 🟡 In Progress
+## Phase 2 – Aggregation Convergence 🟢 Closed
 - [x] Single aggregation entry point verified
 - [x] Financial Aggregation Architecture documented
 - [x] Remove duplicate totals logic
@@ -160,8 +162,8 @@ Exit Criteria:
 - [x] Totals agreement guardrail
 - [x] Dashboard endpoint server alignment (Phase 2/4 coupling)
 Notes:
-- Convergence refactors are in progress, including helper centralization.
-- Invariant-level verification is not yet complete.
+- Convergence refactors and helper centralization are complete.
+- Invariant-level verification is covered by guardrails and repository invalidation coverage.
 - How verified: public aggregation export surface is restricted to `buildFinanceAggregates` (Option B).
 - How verified: dataset epoch is included in repository cache keys and bumped after successful `POST /api/finance/actual` and `POST /api/finance/budget`.
 - How verified: canonical revenue helper + agreement tests and dashboard server endpoint migration are already in place.
@@ -172,7 +174,7 @@ Exit Criteria:
 
 ---
 
-## Phase 3 – Cash Flow Structural Alignment 🟡 In Progress
+## Phase 3 – Cash Flow Structural Alignment 🟢 Closed
 - [x] Validate delta reconciliation vs Balance Sheet
 - [x] Ensure no snapshot dependency
 - [x] Add invariant reconciliation tests
@@ -183,7 +185,7 @@ Exit Criteria:
 
 ---
 
-## Phase 4 – Dashboard Alignment 🟡 In Progress
+## Phase 4 – Dashboard Alignment 🟢 Closed
 - [x] Dashboard uses server-side `DashboardModel` only
 - [x] Dashboard UI consumes a single `/api/finance/dashboard` endpoint (no N+1)
 - [x] No finance logic in UI (render-only consumption)
@@ -192,7 +194,7 @@ Exit Criteria:
 - [x] Dashboard model composes from report models or unified aggregation output (no parallel totals path)
 Notes:
 - Dashboard totals helper unification is implemented.
-- Full alignment invariants are not yet verified end-to-end.
+- Full alignment invariants are verified by single-endpoint server model consumption and UI render-only guardrails.
 
 Exit Criteria:
 - Dashboard derived solely from unified engine output
