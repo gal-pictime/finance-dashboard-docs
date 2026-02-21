@@ -12,6 +12,13 @@ At the beginning of every new ChatGPT session related to this repository:
 - Do not execute or suggest terminal commands until this acknowledgment step is complete.
 - Work must not begin until this protocol is acknowledged.
 
+## Manual Edit Prohibition
+- The user MUST never edit files manually.
+- All changes MUST be performed via Codex-generated patches or terminal commands.
+- The user executes commands and pastes outputs only.
+- The assistant MUST never instruct manual file edits.
+- This rule is absolute and non-optional.
+
 ## Golden Rules
 - Never work directly on `main`.
 - Always prefer minimal diffs and smallest safe change scope.
@@ -125,6 +132,12 @@ B) Task Completion Rule
 - Partial completion must be explicitly clarified in the roadmap.
 - If the change performed does not correspond to an existing roadmap task, do NOT invent a checkbox; only add a Change Log entry.
 - Never leave completed tasks unchecked.
+
+## Roadmap Integrity Rule
+- Every completed roadmap item MUST be marked with `[x]`.
+- Leaving completed work unchecked is governance drift.
+- Phase status indicators MUST match repository reality.
+- Documentation MUST reflect actual implementation state.
 
 ## Stop Conditions
 Stop and investigate before proceeding if any of the following occurs:

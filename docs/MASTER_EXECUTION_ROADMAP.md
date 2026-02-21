@@ -89,6 +89,16 @@ No skipping order without explicit architectural review.
 
 ---
 
+## Execution Model Clarification
+
+The Full Financial Unification Program follows an Iterative Convergence Model.
+Later phases MAY begin before earlier phases are fully closed.
+Completion is defined by architectural invariants and production behavior, not strict linear checkbox order.
+Sequence remains a planning default, not a hard blocker when convergence work overlaps phases.
+Architectural correctness and deterministic outputs take priority over linear progression.
+
+---
+
 # 0️⃣ FULL FINANCIAL UNIFICATION PROGRAM
 Status: 🟡 In Progress
 
@@ -103,7 +113,7 @@ Single unified finance model powering:
 
 ---
 
-## Phase 1 – Balance Sheet Unification
+## Phase 1 – Balance Sheet Unification 🟢 Completed
 - [x] Introduced BalanceSheetReportModel
 - [x] Engine-driven report endpoint
 - [x] Dashboard migration to report model
@@ -119,12 +129,15 @@ Exit Criteria:
 
 ---
 
-## Phase 2 – Aggregation Convergence
+## Phase 2 – Aggregation Convergence 🟡 In Progress
 - [ ] Single aggregation entry point verified
 - [ ] Remove duplicate totals logic
 - [ ] Remove duplicate variance logic
 - [ ] Period selection unified
 - [ ] Budget vs Actual share same source
+Notes:
+- Convergence refactors are in progress, including helper centralization.
+- Invariant-level verification is not yet complete.
 
 Exit Criteria:
 - Summary / Detailed / Departments identical totals source
@@ -132,7 +145,7 @@ Exit Criteria:
 
 ---
 
-## Phase 3 – Cash Flow Structural Alignment
+## Phase 3 – Cash Flow Structural Alignment 🟡 In Progress
 - [ ] Validate delta reconciliation vs Balance Sheet
 - [ ] Ensure no snapshot dependency
 - [ ] Add invariant reconciliation tests
@@ -143,14 +156,29 @@ Exit Criteria:
 
 ---
 
-## Phase 4 – Dashboard Alignment
+## Phase 4 – Dashboard Alignment 🟡 In Progress
 - [ ] Dashboard uses report models only
 - [ ] No finance logic in UI
 - [ ] KPI logic centralized in src/lib/finance
 - [ ] Compare logic identical to Income Statement
+Notes:
+- Dashboard totals helper unification is implemented.
+- Full alignment invariants are not yet verified end-to-end.
 
 Exit Criteria:
 - Dashboard derived solely from unified engine output
+
+---
+
+## Definition of Completion
+
+The Full Financial Unification Program is complete only when:
+- A single aggregation pipeline is used across all financial reports.
+- No duplicate totals or variance logic exists.
+- Period resolution is globally unified.
+- Cash Flow is structurally aligned with Balance Sheet movements.
+- The Dashboard performs zero financial calculations.
+- The Finance Engine can be extracted into a standalone service without refactor.
 
 ---
 
