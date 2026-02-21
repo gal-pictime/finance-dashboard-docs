@@ -139,6 +139,25 @@ Every important rule must have a small unit test:
 - npm cache is used via `actions/setup-node` in each CI job; Next.js cache uses `.next/cache` in build-heavy paths.
 - Cache busting is automatic when lockfiles/core build config hashes change; if CI cache looks stale, rerun jobs.
 
+## CI Heavy Label Policy (`needs-e2e`)
+`CI` is the fast required PR gate (`lint`, unit `test`, `build`) for quick feedback and merge safety. `CI Heavy` is the slower integration gate (DB migrate/seed, DB guardrails, Playwright E2E). On pull requests, `CI Heavy` runs only when explicitly requested by label.
+
+To trigger `CI Heavy` on a PR, add label: `needs-e2e`.
+
+Add `needs-e2e` if any apply:
+- Prisma schema changes, migrations, seed changes, or DB-affecting logic.
+- Finance API routes, server finance engine wiring, or HTTP finance param parsing changes.
+- Finance export/XLSX flow or workbook structure changes.
+- Report/dashboard UI flows that affect fetch inputs, params, export behavior, or period/compare behavior.
+- Guardrails or CI config changes that could reduce integration safety.
+
+Usually NOT needed:
+- Docs-only changes.
+- Purely cosmetic UI changes with no data/params/IO impact.
+- Isolated formatting helper changes with no IO or integration impact.
+
+Rule of thumb: if the change could break production through integration behavior, add `needs-e2e`.
+
 ## 8) Documentation Rule
 Every new feature requires updating README.md.
 
