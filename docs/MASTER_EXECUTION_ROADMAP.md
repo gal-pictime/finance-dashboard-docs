@@ -30,6 +30,7 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #TBD | Unified Export Engine | Phase 5 | Add unified /api/finance/export orchestration, route unification for single-report exports, and structural invariant tests for ordering/parity. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 4 (Dashboard Alignment) | Remove duplicate dashboard totals logic; centralize P&L + budget totals helpers in src/lib/finance; add tests to prevent drift. |
 | 2026-02-21 | #87 | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Budget vs Actual: move variance and variance% computation into finance model layer; UI is now render-only (no behavior change). |
+| 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Document Financial Aggregation Architecture and define single-entry aggregation target model. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -132,10 +133,12 @@ Exit Criteria:
 
 ## Phase 2 – Aggregation Convergence 🟡 In Progress
 - [ ] Single aggregation entry point verified
+- [x] Financial Aggregation Architecture documented
 - [ ] Remove duplicate totals logic
 - [x] Remove duplicate variance logic
 - [ ] Period selection unified
 - [x] Budget vs Actual share same source
+- [ ] Guardrail Enforcement Layer (prevent aggregation drift)
 Notes:
 - Convergence refactors are in progress, including helper centralization.
 - Invariant-level verification is not yet complete.
