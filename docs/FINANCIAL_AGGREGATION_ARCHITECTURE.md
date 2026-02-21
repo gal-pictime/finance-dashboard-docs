@@ -23,7 +23,7 @@ This document was created as part of Phase 2 (Aggregation Convergence) and is a 
 | `src/lib/finance/balance-sheet-report.ts` | Balance Sheet report-model assembly, section totals, compare boundary handling | BS | Medium |
 | `src/lib/finance/cash-flow-report.ts` | Cash Flow report-model assembly and compare merge logic | CF | Medium |
 | `src/lib/finance/cash-flow/cash-flow-engine.ts` | Cash Flow domain aggregation from P&L + detail + balance deltas | CF | Medium |
-| `src/lib/finance/period.ts` | Shared period labels, compare target resolution, and period summation helpers | IS, BVA, BS, CF, Dashboard | High |
+| `src/lib/finance/period.ts` | Canonical period/compare resolution entry point, plus shared labels and summation helpers | IS, BVA, BS, CF, Dashboard | High |
 | `src/lib/finance/pnl-totals.ts` | Shared P&L totals and computed-series helpers | Dashboard | Medium |
 | `src/lib/finance/dashboard-model.ts` | Dashboard model assembly and KPI period rollups | Dashboard | High |
 | `src/lib/finance/dashboard-kpis.ts` | Dashboard KPI projection from prepared series/ranges | Dashboard | Medium |
