@@ -42,6 +42,7 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #TBD | Governance / Process | N/A | Document CI Heavy PR label policy (`needs-e2e`) checklist in WORKFLOW.md. |
 | 2026-02-21 | #TBD | CI Performance | 5/Phase 3 | Add setup artifact sharing for lint/test/build, centralize Prisma generate ordering, and keep deterministic npm/Next cache strategy. |
 | 2026-02-21 | #100 | Cash Flow Structural Alignment | Phase 3 | Strict structural alignment via shared balance-delta helper + reconciliation invariants; remove duplicate balance mapping. |
+| 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 4 (Dashboard Alignment) | Move dashboard to single server-built `/api/finance/dashboard` model endpoint; remove UI compare/period math and N+1 fetches; enforce UI guardrail. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -179,12 +180,12 @@ Exit Criteria:
 ---
 
 ## Phase 4 – Dashboard Alignment 🟡 In Progress
-- [ ] Dashboard uses server-side `DashboardModel` only
-- [ ] Dashboard UI consumes a single `/api/finance/dashboard` endpoint (no N+1)
-- [ ] No finance logic in UI (render-only consumption)
-- [ ] KPI logic centralized in src/lib/finance
-- [ ] Compare logic remains identical to Income Statement
-- [ ] Dashboard model composes from report models or unified aggregation output (no parallel totals path)
+- [x] Dashboard uses server-side `DashboardModel` only
+- [x] Dashboard UI consumes a single `/api/finance/dashboard` endpoint (no N+1)
+- [x] No finance logic in UI (render-only consumption)
+- [x] KPI logic centralized in src/lib/finance
+- [x] Compare logic remains identical to Income Statement
+- [x] Dashboard model composes from report models or unified aggregation output (no parallel totals path)
 Notes:
 - Dashboard totals helper unification is implemented.
 - Full alignment invariants are not yet verified end-to-end.
