@@ -35,6 +35,7 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #TBD | Full Financial Unification (A) / Phase 2–4 Convergence | Phase 2–4 | Documented amended Phase 2 plan: dedup helpers, totals agreement guardrail, dashboard server alignment, cache invalidation, nondeterminism cleanup; added future-proof AI insights + import pipeline architecture docs. |
 | 2026-02-21 | #TBD | Governance / Architecture | N/A | Added AI Insights Architecture + Import Pipeline Architecture docs; added Future Claude Recommendations doc. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Deduplicate zeroMonths to canonical src/lib/finance/months.ts; remove duplicate implementations across finance modules and contract registry. |
+| 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Canonicalize filterBudgetByScope into budget-scope helper; add contract tests to prevent drift. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -143,7 +144,7 @@ Exit Criteria:
 - [x] Period selection unified
 - [x] Budget vs Actual share same source
 - [ ] Guardrail Enforcement Layer (prevent aggregation drift)
-- [ ] Deduplicate `filterBudgetByScope`
+- [x] Deduplicate `filterBudgetByScope`
 - [x] Deduplicate `zeroMonths` (single canonical import)
 - [ ] Canonical revenue helper policy + implementation planned
 - [ ] Cache invalidation on write endpoints
