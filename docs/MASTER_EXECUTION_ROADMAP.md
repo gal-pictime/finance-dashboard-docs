@@ -27,7 +27,7 @@ Last Updated: 2026-02-21
 | 2026-02-20 | #74 | Balance Sheet Unification | Phase 1 | Remove BalanceSheetResponse legacy type; align API/public types and docs. |
 | 2026-02-20 | #75 | Governance | N/A | Move MASTER_EXECUTION_ROADMAP under docs/ for public mirror. |
 | 2026-02-20 | #78 | Governance / Guardrails | N/A | Add CI-safe guardrail enforcing Change Log updates for finance-critical changes. |
-| 2026-02-21 | #TBD | Unified Export Engine | Phase 5 | Unify XLSX export infrastructure across all reports using workbookDef registry and shared builder pipeline. No UI or styling changes. |
+| 2026-02-21 | #TBD | Unified Export Engine | Phase 5 | Add unified /api/finance/export orchestration, route unification for single-report exports, and structural invariant tests for ordering/parity. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -154,7 +154,7 @@ Exit Criteria:
 ---
 
 # 1️⃣ UNIFIED EXPORT ARCHITECTURE PROGRAM
-Status: 🟡 In Progress (Phase 1–2 Complete)
+Status: 🟡 In Progress (Phase 1–3 Complete)
 
 ## Objective
 Single export engine shared by:
@@ -183,20 +183,20 @@ Single export engine shared by:
 
 ---
 
-## Phase 2.5 – Export Surface Completion 🟡 Next
-- [ ] Multi-report export orchestration (single/multi/all reports in one workbook)
-- [ ] Filename convention alignment across reports
-- [ ] Preset strategy clarification:
+## Phase 2.5 – Export Surface Completion ✅ Completed
+- [x] Multi-report export orchestration (single/multi/all reports in one workbook)
+- [x] Filename convention alignment across reports
+- [x] Preset strategy clarification:
       - Presets exist only for Budget vs Actual
       - Other reports are currently single-mode exports
       - Preset expansion will occur only if multiple export variants become necessary
 
 ---
 
-## Phase 3 – Structural Invariants 🟡 Planned
-- [ ] Snapshot workbook structure tests per report
-- [ ] Column order invariant enforcement
-- [ ] Compare mode parity validation (NONE / PREVIOUS_PERIOD / PRIOR_YEAR)
+## Phase 3 – Structural Invariants ✅ Completed
+- [x] Snapshot workbook structure tests per report
+- [x] Column order invariant enforcement
+- [x] Compare mode parity validation (NONE / PREVIOUS_PERIOD / PRIOR_YEAR)
 
 ---
 
