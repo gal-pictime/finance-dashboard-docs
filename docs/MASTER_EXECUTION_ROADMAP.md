@@ -43,6 +43,7 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #TBD | CI Performance | 5/Phase 3 | Add setup artifact sharing for lint/test/build, centralize Prisma generate ordering, and keep deterministic npm/Next cache strategy. |
 | 2026-02-21 | #100 | Cash Flow Structural Alignment | Phase 3 | Strict structural alignment via shared balance-delta helper + reconciliation invariants; remove duplicate balance mapping. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 4 (Dashboard Alignment) | Move dashboard to single server-built `/api/finance/dashboard` model endpoint; remove UI compare/period math and N+1 fetches; enforce UI guardrail. |
+| 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Restrict aggregation public surface to `buildFinanceAggregates` and add dataset-epoch cache invalidation for actual/budget writes with deterministic repository invalidation coverage. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -144,7 +145,7 @@ Exit Criteria:
 ---
 
 ## Phase 2 – Aggregation Convergence 🟡 In Progress
-- [ ] Single aggregation entry point verified
+- [x] Single aggregation entry point verified
 - [x] Financial Aggregation Architecture documented
 - [x] Remove duplicate totals logic
 - [x] Remove duplicate variance logic
@@ -154,13 +155,16 @@ Exit Criteria:
 - [x] Deduplicate `filterBudgetByScope`
 - [x] Deduplicate `zeroMonths` (single canonical import)
 - [x] Canonical revenue helper policy + implementation planned
-- [ ] Cache invalidation on write endpoints
+- [x] Cache invalidation on write endpoints
 - [x] Remove nondeterministic defaults from finance core
 - [x] Totals agreement guardrail
-- [ ] Dashboard endpoint server alignment (Phase 2/4 coupling)
+- [x] Dashboard endpoint server alignment (Phase 2/4 coupling)
 Notes:
 - Convergence refactors are in progress, including helper centralization.
 - Invariant-level verification is not yet complete.
+- How verified: public aggregation export surface is restricted to `buildFinanceAggregates` (Option B).
+- How verified: dataset epoch is included in repository cache keys and bumped after successful `POST /api/finance/actual` and `POST /api/finance/budget`.
+- How verified: canonical revenue helper + agreement tests and dashboard server endpoint migration are already in place.
 
 Exit Criteria:
 - Summary / Detailed / Departments identical totals source
