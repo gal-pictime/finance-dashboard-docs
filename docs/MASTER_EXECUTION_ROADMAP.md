@@ -154,7 +154,7 @@ Exit Criteria:
 ---
 
 # 1️⃣ UNIFIED EXPORT ARCHITECTURE PROGRAM
-Status: 🟡 In Progress
+Status: 🟡 In Progress (Phase 1–2 Complete)
 
 ## Objective
 Single export engine shared by:
@@ -166,25 +166,37 @@ Single export engine shared by:
 
 ---
 
-## Phase 1 – DTO Alignment
-- [ ] All reports expose stable export DTO
-- [ ] Remove per-report export logic
-- [ ] Align compare column structure
+## Phase 1 – DTO Alignment ✅ Completed
+- [x] All exports are built from stable report models (no UI-derived DTOs)
+- [x] Removed direct per-report ExcelJS construction
+- [x] Compare column structure aligned across reports
 
 ---
 
-## Phase 2 – Shared Export Builder
-- [ ] Central builder in src/lib/finance/export
-- [ ] Stable column order contract
-- [ ] Deterministic row hierarchy
-- [ ] No UI-level formatting logic
+## Phase 2 – Shared Export Builder ✅ Completed
+- [x] Central builder in `src/lib/finance/export`
+- [x] WorkbookDef registry implemented
+- [x] Unified engine XLSX methods per report
+- [x] Unified export route adapter pattern
+- [x] Default year consistency across exports
+- [x] No UI-level formatting logic
 
 ---
 
-## Phase 3 – Structural Invariants
-- [ ] Snapshot export tests per report
-- [ ] Column order invariant test
-- [ ] Compare parity validation
+## Phase 2.5 – Export Surface Completion 🟡 Next
+- [ ] Multi-report export orchestration (single/multi/all reports in one workbook)
+- [ ] Filename convention alignment across reports
+- [ ] Preset strategy clarification:
+      - Presets exist only for Budget vs Actual
+      - Other reports are currently single-mode exports
+      - Preset expansion will occur only if multiple export variants become necessary
+
+---
+
+## Phase 3 – Structural Invariants 🟡 Planned
+- [ ] Snapshot workbook structure tests per report
+- [ ] Column order invariant enforcement
+- [ ] Compare mode parity validation (NONE / PREVIOUS_PERIOD / PRIOR_YEAR)
 
 ---
 
@@ -195,7 +207,9 @@ Single export engine shared by:
 - [ ] Board-ready appearance
 
 Exit Criteria:
-- All reports export through identical architecture
+- All reports export through a unified workbookDef → builder → buffer pipeline
+- Export surface (single + multi) is stable
+- Structural invariants enforced by automated tests
 
 ---
 
