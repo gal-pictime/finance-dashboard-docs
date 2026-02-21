@@ -41,6 +41,54 @@ This document was created as part of Phase 2 (Aggregation Convergence) and is a 
 
 ---
 
+## Current Drift Risks (Known Gaps)
+
+- Dashboard model assembly diverges from report models (parallel totals/variance assembly path).
+- Duplicate helper drift risk exists for known helpers (for example `filterBudgetByScope`, `zeroMonths`) when re-implemented in multiple modules.
+- Non-determinism risk remains where `getDefaultMonthSelection` uses wall-clock time; this behavior must stay outside finance core invariants.
+- Cache correctness risk: write endpoints must invalidate repository/TTL cache keys to prevent stale finance reads.
+- Canonical formulas are still duplicated in places (for example revenue and gross-profit-derived computations).
+
+---
+
+## Canonical Totals Policy
+
+- Revenue, Gross Profit, Operating Income, and Net Income must be derived from canonical helpers only.
+- Ad-hoc re-implementation of these formulas is not allowed once canonical helpers exist.
+- First concrete step (planned): introduce a single canonical revenue helper (for example `computeRevenue(series)`) under `src/lib/finance`, and route existing consumers to it in a dedicated follow-up PR.
+
+---
+
+## Dashboard Server Alignment Plan (Eliminate N+1 + Client-side Finance)
+
+- Introduce `/api/finance/dashboard` returning a server-built `DashboardModel`.
+- Dashboard UI must consume a single endpoint and avoid N+1 data waterfalls.
+- Dashboard UI must not assemble finance math in the client.
+- `DashboardModel` must be composed from report models (IS/BS/CF/BVA) or from unified aggregation outputs, not from a parallel totals pipeline.
+
+---
+
+## Guardrails To Add (Planned)
+
+- Totals Agreement Guardrail: IS/BVA/Dashboard KPI totals must agree for the same dataset and period.
+- No Duplicate Finance Helpers Guardrail: prevent duplicate implementations of canonical helpers (`zeroMonths`, `filterBudgetByScope`, revenue formula).
+- No Direct Aggregation In Routes Guardrail: prevent importing `buildFinanceAggregates` directly from API routes (temporary exceptions only until legacy routes migrate).
+
+---
+
+## Safe PR Sequencing
+
+1. Add dashboard-model unit/contract tests first.
+2. Deduplicate helpers (`filterBudgetByScope`, `zeroMonths`, revenue formula path).
+3. Add cache invalidation on finance write endpoints.
+4. Move nondeterministic defaults out of finance core paths.
+5. Add server-side dashboard endpoint.
+6. Migrate dashboard UI to single-endpoint consumption.
+7. Migrate legacy budget route to FinanceEngine.
+8. Add strict guardrails for totals agreement and duplication prevention.
+
+---
+
 ## Target Architecture (Post-Unification Model)
 
 Repository  
@@ -73,3 +121,12 @@ Structural requirements:
 - Consolidation: a normalized aggregation tree enables multi-entity rollups and eliminations without report-specific forks.
 - FX: centralized aggregation boundaries allow a controlled pre-aggregation conversion stage.
 - Extractability: a single deterministic aggregation entry point strengthens migration of the finance engine into an external service boundary.
+
+---
+
+## AI Insights Readiness
+
+- AI never computes authoritative numbers; it generates narrative and diagnostics over deterministic report models and import artifacts.
+- Insights are produced at three stages: import (input), aggregation/consolidation (mid-pipeline), and report (output).
+- Every insight must include evidence references (`fileId`, `rowId`, `accountKey`, `period`, `reportRowKey`) for auditability.
+- The architecture remains internal-only by default (no external egress assumed), while keeping adapter boundaries ready for future transport/runtime changes.

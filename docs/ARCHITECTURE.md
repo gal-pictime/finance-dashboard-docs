@@ -174,6 +174,12 @@ Use-cases are the contract surface. Inputs/outputs must be explicit and stable.
 - Implementation code and Prisma-dependent types are forbidden from the mirror.
 - Decision record: `docs/adr/ADR-001-public-docs-mirror.md`.
 
+## Insights Layer (Planned)
+
+- A server-bound Insights Layer is planned to consume: (a) import artifacts, (b) normalized aggregation outputs, and (c) report models.
+- Finance core remains deterministic and authoritative; insights are narrative/diagnostic overlays only.
+- Insight outputs must include evidence references back to import/report lineage to keep explanations auditable.
+
 ## Report Models Boundary Note
 
 `src/lib/finance/report-models` currently contains executable logic in addition to model structures.  

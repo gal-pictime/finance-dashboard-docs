@@ -32,6 +32,8 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #87 | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Budget vs Actual: move variance and variance% computation into finance model layer; UI is now render-only (no behavior change). |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Document Financial Aggregation Architecture and define single-entry aggregation target model. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Unify period + compare resolution via single canonical entrypoint; add guardrail. |
+| 2026-02-21 | #TBD | Full Financial Unification (A) / Phase 2–4 Convergence | Phase 2–4 | Documented amended Phase 2 plan: dedup helpers, totals agreement guardrail, dashboard server alignment, cache invalidation, nondeterminism cleanup; added future-proof AI insights + import pipeline architecture docs. |
+| 2026-02-21 | #TBD | Governance / Architecture | N/A | Added AI Insights Architecture + Import Pipeline Architecture docs; added Future Claude Recommendations doc. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -140,6 +142,13 @@ Exit Criteria:
 - [x] Period selection unified
 - [x] Budget vs Actual share same source
 - [ ] Guardrail Enforcement Layer (prevent aggregation drift)
+- [ ] Deduplicate `filterBudgetByScope`
+- [ ] Deduplicate `zeroMonths` (single canonical import)
+- [ ] Canonical revenue helper policy + implementation planned
+- [ ] Cache invalidation on write endpoints
+- [ ] Remove nondeterministic defaults from finance core
+- [ ] Totals agreement guardrail
+- [ ] Dashboard endpoint server alignment (Phase 2/4 coupling)
 Notes:
 - Convergence refactors are in progress, including helper centralization.
 - Invariant-level verification is not yet complete.
@@ -162,10 +171,12 @@ Exit Criteria:
 ---
 
 ## Phase 4 – Dashboard Alignment 🟡 In Progress
-- [ ] Dashboard uses report models only
-- [ ] No finance logic in UI
+- [ ] Dashboard uses server-side `DashboardModel` only
+- [ ] Dashboard UI consumes a single `/api/finance/dashboard` endpoint (no N+1)
+- [ ] No finance logic in UI (render-only consumption)
 - [ ] KPI logic centralized in src/lib/finance
-- [ ] Compare logic identical to Income Statement
+- [ ] Compare logic remains identical to Income Statement
+- [ ] Dashboard model composes from report models or unified aggregation output (no parallel totals path)
 Notes:
 - Dashboard totals helper unification is implemented.
 - Full alignment invariants are not yet verified end-to-end.
