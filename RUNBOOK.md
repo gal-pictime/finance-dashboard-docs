@@ -94,6 +94,15 @@ git push -u origin HEAD
 - If needed, open the PR in the browser with `gh pr view --web`.
 - Do not merge until required checks appear and pass.
 
+### CI Structure (GitHub Actions)
+- CI runs three jobs in parallel: `lint`, `test`, `build`.
+- Caching is enabled for npm dependencies via `actions/setup-node` npm cache.
+- Next.js cache uses `.next/cache`.
+- Cache hits reduce runtime; cache misses are normal.
+- If CI behaves oddly, use GitHub "Re-run jobs".
+- Cache busting happens automatically when lockfile/build inputs change (for example `package-lock.json`, `next.config.*`, `tsconfig.json`, and similar build config files).
+- Local validation requirements are unchanged: continue running `npm run lint`, `npm test`, and `npm run build` before commit/PR.
+
 6. Post-merge
 - [ ] Sync local `main`.
 - [ ] Confirm clean working tree.

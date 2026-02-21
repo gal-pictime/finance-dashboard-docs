@@ -160,6 +160,7 @@ Any logic drift should fail tests.
 CI workflows, PR policy enforcement, docs mirror behavior, scripts/hooks, and guardrail test update procedures are documented in:
 `docs/engineering-guardrails.md`.
 CI guardrails also enforce governance alignment by requiring `docs/MASTER_EXECUTION_ROADMAP.md` Change Log updates when finance-critical paths change.
+CI now runs `lint`, `test`, and `build` in parallel and uses npm plus Next.js `.next/cache` caching; cache keys auto-bust on lockfile/build-input changes.
 
 ## XLSX Export
 

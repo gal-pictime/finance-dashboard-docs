@@ -6,7 +6,10 @@
 
 ## GitHub Actions Workflows
 ### CI (`.github/workflows/ci.yml`)
-- Runs lint, unit tests, Prisma generate/migrate/seed, DB fingerprint guardrail, build, and Playwright smoke tests.
+- Runs `lint`, `test`, and `build` as parallel jobs with the same command gates as before.
+- `test` job still runs unit tests, Prisma generate/migrate/seed, DB fingerprint guardrail, and Playwright smoke tests.
+- Uses npm dependency cache via `actions/setup-node` and restores Next.js incremental cache from `.next/cache`.
+- Next.js cache keys include OS, Node major, lockfile hash, and key build config hashes (`next.config.*`, `package.json`, `tsconfig.json`, etc.), with restore-key fallback.
 - Purpose: deterministic correctness gates for code, DB seed stability, and top-level route smoke coverage.
 
 ### PR policy (`.github/workflows/pr-policy.yml`)

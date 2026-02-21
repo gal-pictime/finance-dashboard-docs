@@ -36,6 +36,7 @@ Last Updated: 2026-02-21
 | 2026-02-21 | #TBD | Governance / Architecture | N/A | Added AI Insights Architecture + Import Pipeline Architecture docs; added Future Claude Recommendations doc. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Deduplicate zeroMonths to canonical src/lib/finance/months.ts; remove duplicate implementations across finance modules and contract registry. |
 | 2026-02-21 | #TBD | Full Financial Unification (A) | Phase 2 (Aggregation Convergence) | Canonicalize filterBudgetByScope into budget-scope helper; add contract tests to prevent drift. |
+| 2026-02-21 | #TBD | CI Performance | 5/Phase 3 | Add GitHub Actions caching + split jobs for parallel CI. |
 
 Every merged PR MUST:
 1. Map to a section below
@@ -388,7 +389,7 @@ Status: 🟡 In Progress
 
 ## Phase 3 – CI Enforcement
 - [ ] Enforce PR classification
-- [ ] Enforce lint/test/build
+- [x] Enforce lint/test/build
 - [ ] Prevent dev artifacts
 
 ---

@@ -135,6 +135,8 @@ Every important rule must have a small unit test:
 - Guardrail test exists and fails CI on violation.
 - Seed/migration changes MUST update `src/server/db-fingerprint.test.ts` snapshot in the same PR.
 - CI runs `npm run test:db` after `prisma db seed`.
+- CI runs `lint`, `test`, and `build` in parallel jobs with npm cache + Next.js `.next/cache` restore for faster runs.
+- Cache busting is automatic when lockfiles or core build inputs change; if CI cache looks stale, rerun CI or update the lockfile/build config.
 
 ## 8) Documentation Rule
 Every new feature requires updating README.md.
